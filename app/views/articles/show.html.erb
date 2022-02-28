@@ -1,3 +1,5 @@
+<div class="container-fluid mt-3">
+
 <h1><%= @article.title %></h1>
 
 <p><%= @article.body %></p>
@@ -7,7 +9,8 @@
 <h1>Add a Comment</h1>
 <%= render 'comments/form' %>
 
-<li><%= link_to "Edit", edit_article_path(@article)%></li>
-<li><%= link_to "Destroy", article_path(@article), data: { turbo_method: :delete, turbo_confirm: "are you sure?" } %></li>
-<li><%= link_to "Back", root_path %></li>
+<%= link_to "Edit", edit_article_path(@article), class: 'btn btn-primary'%>
+<%= link_to "Destroy", article_path(@article), data: { turbo_method: :delete, turbo_confirm: "are you sure?" }, class: 'btn btn-danger' %>
+<%= link_to "Back", root_path, class: 'btn btn-secondary' %>
 
+</div>
