@@ -1,0 +1,20 @@
+
+<%= Article.public_count %> Public Articles and Counting!
+<div class="container">
+  <div class="d-flex flex-row justify-content-center">
+
+<ul>
+  <% @articles.each do |article| %>
+
+    <% unless article.archived? %>
+      <div class="card mt-3">
+        <div class="card-header">
+          <h3><%= link_to article.title, edit_article_path(article) %></h3>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</ul>
+
+  </div>
+</div>

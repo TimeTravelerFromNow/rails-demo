@@ -1,0 +1,19 @@
+
+<div class="container">
+  <div class="d-flex flex-row justify-content-center">
+
+<ul>
+  <% @articles.each do |article| %>
+
+    <% if article.public? %>
+      <div class="card mt-3">
+        <div class="card-header">
+          <h3><%= link_to article.title, article_path(article) %></h3>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</ul>
+
+  </div>
+</div>
