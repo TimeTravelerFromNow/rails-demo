@@ -6,7 +6,6 @@ class Article < ApplicationRecord
   validates :title, presence: true
   validates :body, presence: true, length: {minimum: 10}
 
-  has_rich_text :content
-
+  has_many :elements
   has_one_attached :header_image
 end

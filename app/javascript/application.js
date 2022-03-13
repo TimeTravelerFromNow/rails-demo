@@ -6,3 +6,5 @@ import "popper"
 
 import "trix"
 import "@rails/actiontext"
+
+import "stylesheets/application.scss"

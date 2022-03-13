@@ -1,3 +1,9 @@
 <h1> edit article </h1>
-<%= render "form", article: @article %>
-<%= render @article.comments %>
+<div class="md-col">
+  <%= render "form", article: @article %>
+
+</div>
+<div class="md-col">
+  <%= render @article.comments %>
+
+</div>

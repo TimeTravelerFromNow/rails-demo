@@ -47,6 +47,17 @@
   <% if article.id? %>
   <%= link_to "Delete", article_path(article), data: { turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
   <% end %>
+  <div class="col-md-9">
+
+  <% @article.elements.each do |element| %>
+    <% if element.persisted? %>
+      <%= form_with(model: [@article, element]) do |form| %>
+        <%= form.rich_text_area :content %>
+        <%= form.submit "Save", class: 'btn btn-primary' %>
+        <% end %>
+    <% end %>
+  <% end %>
+  </div>
 <% end %>
 
 
