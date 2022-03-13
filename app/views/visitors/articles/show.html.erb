@@ -1,7 +1,11 @@
 <div class="container-fluid mt-3">
 
 <h1><%= @article.title %></h1>
-
+<div class="card">
+  <% if @article.header_image.present? %>
+      <%= image_tag(@article.header_image , width: '100%') %>
+    <% end %>
+</div>
 <p><%= @article.body %></p>
 <div class="card">
   <h3>Comments</h3>

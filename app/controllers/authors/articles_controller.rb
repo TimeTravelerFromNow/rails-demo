@@ -16,7 +16,7 @@ module Authors
     def create
       @article = Article.new(article_params)
       if @article.save
-        redirect_to @article
+        redirect_to edit_article_path(@article)
       else
         render :new, status: :unprocessable_entity
       end
@@ -30,7 +30,7 @@ module Authors
       @article = Article.find(params[:id])
 
       if @article.update(article_params)
-        redirect_to @article
+        redirect_to edit_article_path(@article)
       else
         render :edit, status: :unprocessable_entity
       end
@@ -45,7 +45,7 @@ module Authors
 
     private
      def article_params
-       params.require(:article).permit(:title, :body, :status)
+       params.require(:article).permit(:title, :body, :status, :header_image)
      end
   end
 end
