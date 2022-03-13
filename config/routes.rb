@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :users
+
   root to: "visitors/articles#index"
   get '/articles/:id' => 'visitors/articles#show', as: :blog_post
+  get '/new/article' => 'authors/articles#new', as: :new_article
 
   scope module: 'authors' do
     get '/articles/:id' => 'authors/articles#edit', as: :article

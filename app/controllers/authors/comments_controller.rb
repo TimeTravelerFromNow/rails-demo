@@ -3,6 +3,13 @@ module Authors
     def create
       @article = Article.find(params[:article_id])
       @comment = @article.comments.create(comment_params)
+      if @comment.public?
+        @comment.update(status: 'pending')
+      else
+        @comment.update(status: 'private')
+      end
+
+      @comment.update(commenter: current_user.email)
       redirect_to article_path(@article)
     end
 

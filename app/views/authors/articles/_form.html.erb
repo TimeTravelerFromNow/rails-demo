@@ -35,7 +35,9 @@
 
   <%= form.submit "Submit", class: "btn btn-outline-primary"%>
   <%= link_to "Back", articles_path, class: 'btn btn-outline-secondary'%>
+  <% if article.id? %>
   <%= link_to "Delete", article_path(article), data: { turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+  <% end %>
 <% end %>
 
 
