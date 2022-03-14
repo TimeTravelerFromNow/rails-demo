@@ -7,4 +7,4 @@ import "popper"
 import "trix"
 import "@rails/actiontext"
 
-import "stylesheets/application.scss"
+//import "stylesheets/application.scss"

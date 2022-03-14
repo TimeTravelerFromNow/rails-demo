@@ -1,5 +1,6 @@
 module Authors
   class ArticlesController < AuthorsController
+    before_action :set_post, only: %i[edit update destroy ]
 
     def index
      @articles = Article.all
@@ -23,7 +24,7 @@ module Authors
     end
 
     def edit
-      @article = Article.find(params[:id])
+      @paragraph = @article.elements.build(element_type: 'paragraph')
     end
 
     def update
@@ -44,6 +45,10 @@ module Authors
     end
 
     private
+      def set_post
+        @article = Article.find(params[:id])
+      end
+
      def article_params
        params.require(:article).permit(:title, :body, :status, :header_image)
      end

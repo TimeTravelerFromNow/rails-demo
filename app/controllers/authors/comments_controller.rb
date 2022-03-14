@@ -17,13 +17,17 @@ module Authors
       @article = Article.find(params[:article_id])
       @comment = @article.comments.find(params[:id])
       @comment.destroy
-      redirect_to article_edit_path(@article), status: 303
+      redirect_to edit_article_path(@article), status: 303
     end
 
     def makepublic
       @article = Article.find(params[:article_id])
       @comment = @article.comments.find(params[:id])
-      @comment.update(status: 'public')
+      if @comment.public?
+        @comment.update(status: 'archived')
+      else
+        @comment.update(status: 'public')
+      end
       redirect_to edit_article_path(@article), status: 303
     end
 
