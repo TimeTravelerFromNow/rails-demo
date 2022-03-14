@@ -11,7 +11,7 @@ module Authors
       if @element.save
         notice = nil
       else
-        notice = @elements.errors.full_messages.join(". ") << "."
+        notice = @element.errors.full_messages.join(". ") << "."
       end
       redirect_to edit_article_path(@article)
     end
@@ -23,7 +23,7 @@ module Authors
         else
           redirect_to edit_article_path(@article)
         end
-      end
+
     end
 
     # DELETE /elements/1 or /elements/1.json
@@ -34,7 +34,7 @@ module Authors
 
     private
       def set_post
-        @article = Article.find(params[:post_id])
+        @article = Article.find(params[:article_id])
       end
 
       # Use callbacks to share common setup or constraints between actions.
