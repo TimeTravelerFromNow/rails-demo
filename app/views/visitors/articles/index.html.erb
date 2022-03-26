@@ -4,15 +4,30 @@
 
 <ul>
   <% @articles.each do |article| %>
-
     <% if article.public? %>
-      <div class="card mt-3">
-        <div class="card-header">
-          <h3><%= link_to article.title, article_path(article) %></h3>
+    <%= link_to article_path(article), class: 'text-decoration-none' do %>
+    <div class="card mt-3 post-card">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-2">
+            <% if article.header_image.present? %>
+            <div class="header-img" style="background-image: url(<%= url_for(article.header_image) %>);">
+
+            </div>
+            <% end %>
+          </div>
+          <div class="col-md-10">
+            <h5 class='card-title mb-1 text-dark'><%= article.title %></h5>
+          <p class='text-secondary mb-0'><%= article.body %> </p>
+        </div>
+
         </div>
       </div>
+    </div>
+      <% end %>
     <% end %>
   <% end %>
+
 </ul>
 
   </div>

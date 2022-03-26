@@ -1,4 +1,4 @@
 class VisitorsController < ApplicationController
 
-  #layout 'authors'
+  #layout 'visitors'
 end
