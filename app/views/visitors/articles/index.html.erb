@@ -3,6 +3,10 @@
   <div class="d-flex flex-row justify-content-center">
 
 <ul>
+  <div class="card" style="background-color: maroon">
+    <h3 style ="color: white">Blog Feed</h3>
+
+  </div>
   <% @articles.each do |article| %>
     <% if article.public? %>
     <%= link_to article_path(article), class: 'text-decoration-none' do %>

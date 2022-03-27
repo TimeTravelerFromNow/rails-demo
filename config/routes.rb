@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+
+
   devise_for :users
 
   root to: "visitors/articles#index"
@@ -9,8 +11,8 @@ Rails.application.routes.draw do
     get '/articles/:id' => 'authors/articles#edit', as: :article
 
     resources :articles do
-        resources :elements 
-        resources :comments do
+              resources :elements
+              resources :comments do
           member do
             get :makepublic
           end

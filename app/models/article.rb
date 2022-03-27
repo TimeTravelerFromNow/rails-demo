@@ -4,8 +4,9 @@ class Article < ApplicationRecord
   has_many :comments, dependent: :destroy
 
   validates :title, presence: true
-  validates :body, presence: true, length: {minimum: 10}
+  validates :body, presence: true, length: {minimum: 2}
 
-  has_many :elements, dependent: :destroy
+  has_many :elems
+  has_many :elements
   has_one_attached :header_image
 end

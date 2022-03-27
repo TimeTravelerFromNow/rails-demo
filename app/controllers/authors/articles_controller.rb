@@ -16,6 +16,7 @@ module Authors
 
     def create
       @article = Article.new(article_params)
+
       if @article.save
         redirect_to edit_article_path(@article)
       else

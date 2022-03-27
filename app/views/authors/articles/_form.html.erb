@@ -1,74 +1,94 @@
 <div class="flex-row d-flex justify-content-center">
-
-  <div class="col-md-8">
- <div class="card">
-
-
+  <div class="card">
    <div class="card-body">
 
      <%= form_with model: @article do |form| %>
+           <div class= "form-group">
+             <%= form.label :title %><br>
+             <%= form.text_field :title, class: 'form-control'%>
+             <% article.errors.full_messages_for(:title).each do |message| %>
+              <div><%= message %></div>
+             <% end %>
+          </div>
 
-       <div class= "form-group">
+          <div class="form-group">
+            <%= form.label :body %><br>
+            <%= form.text_area :body, class: 'form-control'%>
+            <% article.errors.full_messages_for(:body).each do |message| %>
+              <div><%= message %></div>
+            <% end %>
+          </div>
 
-   <%= form.label :title %><br>
-   <%= form.text_field :title, class: 'form-control'%>
-   <% article.errors.full_messages_for(:title).each do |message| %>
-   <div><%= message %></div>
- <% end %>
+          <div class="form-group">
+            <%= form.label :header_image %>
+            <%= form.file_field :header_image, class: 'form-control' %>
+            <% if article.header_image.present? %>
+              <small>current image:</small>
+              <%= image_tag(article.header_image , width: '100%') %>
+            <% end %>
+          </div>
 
+      <div class="form-group">
+        <%= form.label :status %><br>
+        <%= form.select :status, ['public','private','archived'], selected: 'public'%>
+      </div>
+
+      <%= form.submit "Submit", class: "btn btn-outline-primary"%>
+      <%= link_to "Back", articles_path, class: 'btn btn-outline-secondary'%>
+      <% if article.id? %>
+      <%= link_to "Delete", article_path(article), data: { turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-danger" %>
+      <% end %>
+<% end %>
+    </div>
   </div>
-
-  <div class="form-group">
-
-    <%= form.label :body %><br>
-    <%= form.text_area :body, class: 'form-control'%>
-   <% article.errors.full_messages_for(:body).each do |message| %>
-   <div><%= message %></div>
- <% end %>
-
-  </div>
-
-  <div class="form-group">
-    <%= form.label :header_image %>
-    <%= form.file_field :header_image, class: 'form-control' %>
-    <% if article.header_image.present? %>
-      <small>current image:</small>
-      <%= image_tag(article.header_image , width: '100%') %>
-    <% end %>
-  </div>
-
-  <div class="form-group">
-    <%= form.label :status %><br>
-    <%= form.select :status, ['public','private','archived'], selected: 'public'%>
-  </div>
-
-  <%= form.submit "Submit", class: "btn btn-outline-primary"%>
-  <%= link_to "Back", articles_path, class: 'btn btn-outline-secondary'%>
-  <% if article.id? %>
-  <%= link_to "Delete", article_path(article), data: { turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-
   <div class="col-md-9">
     <div class="mb-3">
-
+      <% if article.id? %>
       <%= form_with(model: [@article, @paragraph]) do |form| %>
         <%= form.hidden_field :element_type, value: 'paragraph' %>
         <%= form.submit "Paragraph", class: 'btn btn-primary' %>
       <% end %>
+      <%= form_with(model: [@article, @paragraph]) do |form| %>
+        <%= form.hidden_field :element_type, value: 'image' %>
+        <%= form.submit "Image", class: 'btn btn-dark' %>
+      <% end %>
     </div>
-  <% @article.elements.each do |element| %>
-    <% if element.persisted? %>
-      <%= form_with(model: [@article, element]) do |form| %>
-          <%= form.rich_text_area :content %>
-          <%= form.submit "Save", class: 'btn btn-primary' %>
+    <div class="card">
+      <div class="card-header text-right">
+        <% if @article.public? %>
+        <b>Published</b> <%= time_ago_in_words(@article.created_at) %> ago
+        updated <%= time_ago_in_words(@article.updated_at) %>
+        <% elsif @article.archived? %>
+          Archived
+          <% elsif @article.private? %>
+          Private
         <% end %>
-    <% end %>
-  <% end %>
-  </div>
-    <% end %>
-<% end %>
+      </div>
+      <div class="card-body pt-5">
+        <% @article.elements.each do |element| %>
+          <% if element.persisted? %>
+           elementid : <%= element.id %>
+          <div class="mb-3">
+            <div class="paragraph-content">
+              <%= element.content %>
+            </div>
+            <div class="paragraph-form">
+              <%= form_with(model: [@article, element]) do |form| %>
+                  <%= form.rich_text_area :content %>
+                  <%= form.submit class: 'btn btn-primary' %>
+                <% end %>
+
+            </div>
+
+          </div>
+
+          <% end %>
+        <% end %>
+        <% end %>
+      </div>
+    </div>
 
 
   </div>
 
-  </div>
- </div>
+</div>

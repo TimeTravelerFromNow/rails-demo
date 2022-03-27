@@ -2,10 +2,12 @@
 
 one:
   element_type: MyString
+  content: MyText
   article: one
   position: 1
 
 two:
   element_type: MyString
+  content: MyText
   article: two
   position: 1

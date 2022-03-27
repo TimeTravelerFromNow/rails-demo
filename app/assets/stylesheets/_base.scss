@@ -1,6 +1,7 @@
 
 
 .authors {
+  background-color: coral !important;
   .paragraph {
     transition: background-color 0.5s ease;
     &:hover {
@@ -25,6 +26,27 @@
 }
 
 .visitors {
+
+  background-color: #ffcdab !important;
+
+  // custom class for background
+  .navbar-customclass {
+      background-color: blue;
+  }
+  /* changing brand text color*/
+  .navbar-customclass .navbar-brand,
+  .navbar-customclass .navbar-text {
+      color: #4413ff;
+  }
+  /* navigation link text color */
+  .navbar-customclass .navbar-nav .nav-link {
+      color: rgba(10,30,240,.9);
+  }
+  /* navigation links anchor hover and active styles */
+  .navbar-customclass .nav-item.active .nav-link,
+  .navbar-customclass .nav-item:hover .nav-link {
+      color: #4413ff;
+  }
   .paragraph {
     transition: background-color 0.5s ease;
     &:hover {

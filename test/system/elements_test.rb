@@ -15,7 +15,6 @@ class ElementsTest < ApplicationSystemTestCase
     click_on "New element"
 
     fill_in "Article", with: @element.article_id
-    fill_in "Content", with: @element.content
     fill_in "Element type", with: @element.element_type
     fill_in "Position", with: @element.position
     click_on "Create Element"
@@ -29,7 +28,6 @@ class ElementsTest < ApplicationSystemTestCase
     click_on "Edit this element", match: :first
 
     fill_in "Article", with: @element.article_id
-    fill_in "Content", with: @element.content
     fill_in "Element type", with: @element.element_type
     fill_in "Position", with: @element.position
     click_on "Update Element"

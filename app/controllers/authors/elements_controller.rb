@@ -2,7 +2,7 @@ module Authors
   class ElementsController < AuthorsController
 
     before_action :set_post
-    before_action :set_element, only: %i[update destroy ]
+    before_action :set_elements, only: [:update, :destroy ]
 
     # POST /elements or /elements.json
     def create
@@ -18,18 +18,14 @@ module Authors
 
     # PATCH/PUT /elements/1 or /elements/1.json
     def update
-        if @element.update(element_params)
-          redirect_to edit_article_path(@article)
-        else
-          redirect_to edit_article_path(@article)
-        end
-
+        @element.update(elements_params)
+        redirect_to edit_article_path(@element.article)
     end
 
     # DELETE /elements/1 or /elements/1.json
     def destroy
       @element.destroy
-      redirect_to edit_article_path(@article)
+      redirect_to edit_article_path(@element.article)
     end
 
     private
@@ -38,13 +34,13 @@ module Authors
       end
 
       # Use callbacks to share common setup or constraints between actions.
-      def set_element
+      def set_elements
         @element = @article.elements.find(params[:id])
       end
 
       # Only allow a list of trusted parameters through.
-      def element_params
-        params.require(:element).permit(:element_type, :content, :article_id, :position)
+      def elements_params
+        params.require(:element).permit(:element_type, :content)
       end
   end
 end
