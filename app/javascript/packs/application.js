@@ -4,4 +4,3 @@ require("@rails/activestorage").start()
 require("channels")
 
 import "bootstrap";
-import "../stylesheets/application.scss";

@@ -25,7 +25,7 @@ module Authors
     end
 
     def edit
-      @paragraph = @article.elements.build(element_type: 'paragraph')
+      @element = @article.elements.build(element_type: "paragraph")
     end
 
     def update

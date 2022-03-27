@@ -6,7 +6,7 @@ module Authors
 
     # POST /elements or /elements.json
     def create
-      @element = @article.elements.build
+      @element = @article.elements.build(element_params)
 
       if @element.save
         notice = nil
@@ -18,7 +18,7 @@ module Authors
 
     # PATCH/PUT /elements/1 or /elements/1.json
     def update
-        @element.update(elements_params)
+        @element.update(element_params)
         redirect_to edit_article_path(@element.article)
     end
 
@@ -39,8 +39,8 @@ module Authors
       end
 
       # Only allow a list of trusted parameters through.
-      def elements_params
-        params.require(:element).permit(:element_type, :content)
+      def element_params
+        params.require(:element).permit(:element_type, :content, :image)
       end
   end
 end

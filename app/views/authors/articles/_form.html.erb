@@ -1,6 +1,3 @@
-<div class="flex-row d-flex justify-content-center">
-  <div class="card">
-   <div class="card-body">
 
      <%= form_with model: @article do |form| %>
            <div class= "form-group">
@@ -39,56 +36,3 @@
       <%= link_to "Delete", article_path(article), data: { turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-danger" %>
       <% end %>
 <% end %>
-    </div>
-  </div>
-  <div class="col-md-9">
-    <div class="mb-3">
-      <% if article.id? %>
-      <%= form_with(model: [@article, @paragraph]) do |form| %>
-        <%= form.hidden_field :element_type, value: 'paragraph' %>
-        <%= form.submit "Paragraph", class: 'btn btn-primary' %>
-      <% end %>
-      <%= form_with(model: [@article, @paragraph]) do |form| %>
-        <%= form.hidden_field :element_type, value: 'image' %>
-        <%= form.submit "Image", class: 'btn btn-dark' %>
-      <% end %>
-    </div>
-    <div class="card">
-      <div class="card-header text-right">
-        <% if @article.public? %>
-        <b>Published</b> <%= time_ago_in_words(@article.created_at) %> ago
-        updated <%= time_ago_in_words(@article.updated_at) %>
-        <% elsif @article.archived? %>
-          Archived
-          <% elsif @article.private? %>
-          Private
-        <% end %>
-      </div>
-      <div class="card-body pt-5">
-        <% @article.elements.each do |element| %>
-          <% if element.persisted? %>
-           elementid : <%= element.id %>
-          <div class="mb-3">
-            <div class="paragraph-content">
-              <%= element.content %>
-            </div>
-            <div class="paragraph-form">
-              <%= form_with(model: [@article, element]) do |form| %>
-                  <%= form.rich_text_area :content %>
-                  <%= form.submit class: 'btn btn-primary' %>
-                <% end %>
-
-            </div>
-
-          </div>
-
-          <% end %>
-        <% end %>
-        <% end %>
-      </div>
-    </div>
-
-
-  </div>
-
-</div>

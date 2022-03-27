@@ -4,6 +4,7 @@
     "bootstrap": "^5.1.3",
     "jquery": "^3.6.0",
     "popper": "^1.0.1",
+    "stimulus_reflex": "3.5.0-pre8",
     "trix": "^2.0.0-alpha.1"
   }
 }

@@ -6,6 +6,7 @@
     <% if @article.header_image.present? %>
       <%= image_tag(@article.header_image , width: '20%') %>
     <% end %>
+    <p><%= @article.body %></p>
   </div>
 
 
@@ -14,12 +15,12 @@
         <%= elem.content %>
         <% end %>
       <% end %>
-    <div class="">
+    <div class="text-center">
       <%= time_tag(@article.updated_at) %>
     </div>
 </div>
 
-<p><%= @article.body %></p>
+
 <div class="card">
   <h3>Comments</h3>
 
