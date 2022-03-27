@@ -46,7 +46,7 @@
                   click to add content!
                   <% end %>
                 </div>
-                <div class="paragraph-form">
+                <div class="paragraph-form d-none">
                   <%= form_with(model: [@article, element]) do |form| %>
                   <%= form.rich_text_area :content %>
 
