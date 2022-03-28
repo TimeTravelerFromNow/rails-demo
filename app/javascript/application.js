@@ -6,6 +6,7 @@ import "popper"
 
 import "trix"
 import "@rails/actiontext"
+import "@rails/actioncable"
 
 import Sortable from 'sortablejs'
 
