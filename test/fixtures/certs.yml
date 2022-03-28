@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  date_awarded: 2022-03-27 20:26:06
+
+two:
+  title: MyString
+  date_awarded: 2022-03-27 20:26:06

@@ -1,25 +1,36 @@
 <div class="container-fluid mt-3">
 
-<h1><%= @article.title %></h1>
-<div class="card">
-  <div class="col-md-10">
-    <% if @article.header_image.present? %>
-      <%= image_tag(@article.header_image , width: '20%') %>
-    <% end %>
-    <p><%= @article.body %></p>
+<h1 class="center"><%= @article.title %></h1>
+<div class="card ">
+  <div class="center">
+    <div class="col-md-10 ">
+      <% if @article.header_image.present? %>
+      <div class="center">
+        <%= image_tag(@article.header_image , width: '20%') %>
+      </div>
+      <% end %>
+            Created  <%= time_tag(@article.created_at) %>
+      <hr>
+      <p><%= @article.body %></p>
+      <hr>
+    </div>
   </div>
-
 
       <% @article.elements.each do |elem| %>
         <% if elem.persisted? %>
-        <%= elem.content %>
-        <% end %>
+          <% if elem.paragraph? %>
+            <%= elem.content %>
+          <% elsif elem.image? %>
+          <div class="image">
+            <%= image_tag(elem.image) %>
+          </div>
+          <% end %>
+        <% end %><br>
       <% end %>
     <div class="text-center">
-      <%= time_tag(@article.updated_at) %>
+      updated <%= time_tag(@article.updated_at) %>
     </div>
 </div>
-
 
 <div class="card">
   <h3>Comments</h3>
@@ -45,8 +56,12 @@
   sign in to comment.             <%= link_to "sign in", new_user_session_path, method: :delete, class: 'nav-link active'%>
 
   <% end %>
+  <div class="">
+    <%= link_to "Back", root_path, class: 'btn btn-secondary' %>
+
+  </div>
+
 </div>
 
-<%= link_to "Back", root_path, class: 'btn btn-secondary' %>
 
 </div>

@@ -1,0 +1,24 @@
+
+<h2>Editing Certificates</h2>
+<div class="container">
+  <div class="d-flex flex-row justify-content-center">
+
+<ul>
+  <% @certs.each do |cert| %>
+  <% if cert.persisted? %>
+  <%= link_to edit_cert_path(cert), class: 'text-decoration-none' do %>
+      <div class="card mt-3 post-card">
+        <div class="card-body">
+          <div class="row">
+              <div class="col-md-10">
+                <h5 class='card-title mb-1 text-dark'><%= cert.title %></h5>
+                <p class='text-secondary mb-0'><%= cert.description %></p>
+              </div>
+          </div>
+        </div>
+      </div>
+      <% end %>
+  <% end %>
+  <% end %>
+  </div>
+</div>
