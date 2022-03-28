@@ -3,36 +3,34 @@
   <div class="d-flex flex-row justify-content-center">
 
 <ul>
-  <div class="card" style="background-color: #ff5d5a">
-    <h3 class= "center" style="color: white">Blog Feed</h3>
-
+  <div class="card mb-4 index-title">
+    <div class="center">
+      Articles
+    </div>
   </div>
+  <div class="row">
+
   <% @articles.each do |article| %>
     <% if article.public? %>
-    <%= link_to article_path(article), class: 'text-decoration-none' do %>
-    <div class="card mt-3 post-card">
-      <div class="card-body">
-        <div class="row">
-          <div class="col-md-2">
-            <% if article.header_image.present? %>
-            <div class="header-img" style="background-image: url(<%= url_for(article.header_image) %>);">
-
-            </div>
-            <% end %>
+    <div class="col-md-6 col-lg-4">
+        <div class="card post-card">
+            <%= link_to article_path(article), class: 'text-decoration-none' do %>
+              <% if article.header_image.present? %>
+              <div class="header-img" style="background-image: url(<%= url_for(article.header_image) %>);">
+              </div>
+              <% end %>
+              <div class="card-body d-flex flex-column">
+              <h5 class='card-title mb-1 text-dark'><%= article.title %></h5>
+              <p class='card-text'><%= truncate(article.body, length: 220) %> </p>
+              <a href=<%= article_path(article)%> class="btn btn-secondary mt-auto">Read</a>
+          <% end %>
           </div>
-          <div class="col-md-10">
-            <h5 class='card-title mb-1 text-dark'><%= article.title %></h5>
-          <p class='text-secondary mb-0'><%= article.body %> </p>
         </div>
-
-        </div>
-      </div>
     </div>
-      <% end %>
+
     <% end %>
   <% end %>
-
-</ul>
+</div>
 
   </div>
 </div>

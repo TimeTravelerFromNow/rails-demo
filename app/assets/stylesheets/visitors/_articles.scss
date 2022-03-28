@@ -1,0 +1,108 @@
+
+.visitors.articles.index {
+background-image: linear-gradient(to bottom right, #F80B42, yellow);
+    background-color: #ffae5b !important;
+  .hr {
+      display: block;
+      height: 1px;
+      border: 0;
+      border-top: 1px solid #ccc;
+      margin: 1em 0;
+      padding: 0;
+  }
+  .center {
+    display: flex;
+    justify-content: center;
+  }
+  // custom class for background
+  .navbar-customclass {
+      background-color: #FFF9EB;
+  }
+  .index-title {
+    background-color: #FFF9EB;
+
+    font-size: 34px;
+      -webkit-text-stroke-width: 0.9px;
+    -webkit-text-stroke-color: #FFF9EB;
+  }
+  /* changing brand text color*/
+  .navbar-customclass .navbar-brand,
+  .navbar-customclass .navbar-text {
+      color: #F80B42;
+      font-size: 30px;
+       text-shadow: 2px 1px black;
+      -webkit-text-stroke-width: 0.1px;
+    -webkit-text-stroke-color: black;
+  }
+  /* navigation link text color */
+  .navbar-customclass .navbar-nav .nav-link {
+      color: rgba(200,30,110,.9);
+  }
+  /* navigation links anchor hover and active styles */
+  .navbar-customclass .nav-item.active .nav-link,
+  .navbar-customclass .nav-item:hover .nav-link {
+      color: #4413ff;
+      &:hover {
+        background-color: #FF9918;
+      }
+  }
+  .paragraph {
+    transition: background-color 0.5s ease;
+    &:hover {
+      background-color: #f8f9fa;
+    }
+  }
+  .image {
+    text-align: center;
+    img {
+      max-width: 80%
+    }
+  }
+  .post-card {
+    height: 522px;
+    .header-img {
+      height: 220px;
+      width: 100%;
+      background-size: cover;
+      background-position: center;
+
+    }
+  }
+  .card-text {
+    text-decoration: none;
+    text-decoration-style: text-decoration-none;
+  }
+}
+
+
+.visitors.articles.show {
+background-image: linear-gradient(to bottom right, #F80B42, yellow);
+    background-color: #ffae5b !important;
+  .hr {
+      display: block;
+      height: 1px;
+      border: 0;
+      border-top: 1px solid #ccc;
+      margin: 1em 0;
+      padding: 0;
+  }
+  .center {
+    display: flex;
+    justify-content: center;
+  }
+
+  .image {
+    text-align: center;
+    img {
+      max-width: 80%
+    }
+  }
+  .post-card {
+    .header-img {
+      height: 362px;
+      background-size: cover;
+      background-position: center;
+
+    }
+  }
+}

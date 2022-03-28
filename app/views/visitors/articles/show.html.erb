@@ -1,35 +1,38 @@
-<div class="container-fluid mt-3">
+<div class="container-fluid mt-3 visitors">
 
-<h1 class="center"><%= @article.title %></h1>
-<div class="card ">
-  <div class="center">
-    <div class="col-md-10 ">
-      <% if @article.header_image.present? %>
-      <div class="center">
-        <%= image_tag(@article.header_image , width: '20%') %>
+<div class="card post-card mb-3">
+  <% if @article.header_image.present? %>
+      <div class="header-img" style="background-image: url(<%= url_for(@article.header_image) %>);">
       </div>
       <% end %>
-            Created  <%= time_tag(@article.created_at) %>
-      <hr>
-      <p><%= @article.body %></p>
-      <hr>
-    </div>
-  </div>
-
-      <% @article.elements.each do |elem| %>
-        <% if elem.persisted? %>
-          <% if elem.paragraph? %>
-            <%= elem.content %>
-          <% elsif elem.image? %>
-          <div class="image">
-            <%= image_tag(elem.image) %>
+      <div class="card-body">
+        <div class="p-4">
+          <div class="center">
+            <div class="col-md-10">
+              <h1 class="center"><%= @article.title %></h1>
+                    Created  <%= time_tag(@article.created_at) %>
+              <hr>
+              <p class="center"><%= @article.body %></p>
+              <hr>
+            </div>
           </div>
-          <% end %>
-        <% end %><br>
-      <% end %>
-    <div class="text-center">
-      updated <%= time_tag(@article.updated_at) %>
-    </div>
+              <% @article.elements.each do |elem| %>
+                <% if elem.persisted? %>
+                  <% if elem.paragraph? %>
+                    <%= elem.content %>
+                  <% elsif elem.image? %>
+                  <div class="image">
+                    <%= image_tag(elem.image) %>
+                  </div>
+                  <% end %>
+                <% end %><br>
+              <% end %>
+            <div class="text-center">
+              updated <%= time_tag(@article.updated_at) %>
+            </div>
+        </div>
+
+      </div>
 </div>
 
 <div class="card">

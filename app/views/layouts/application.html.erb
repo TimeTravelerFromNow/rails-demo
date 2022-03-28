@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Sebastian's Blog Public</title>
+    <title>Seb's Site</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <%= render 'application/favicon' %>
+
   </head>
-
-  <body class='bg-light visitors'>
-
-    <nav class="navbar navbar-customclass navbar-expand-lg navbar-light bg-light">
+  <body class='visitors <%= controller_name %> <%= action_name %>'>
+    <nav class="navbar navbar-customclass navbar-expand-lg navbar-light">
     <div class="container-fluid">
 
-      <%= link_to "Sebastian's Blog",  root_path, class:"navbar-brand" %>
+      <%= link_to "Seb's Site",  root_path, class:"navbar-brand" %>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
