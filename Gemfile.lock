@@ -119,6 +119,7 @@ GEM
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
     kgio (2.11.4)
+    libv8-node (16.10.0.0-x86_64-linux)
     loofah (2.14.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -135,6 +136,8 @@ GEM
       puma (>= 2.13)
     mini_magick (4.11.0)
     mini_mime (1.1.2)
+    mini_racer (0.6.2)
+      libv8-node (~> 16.10.0.0)
     minitest (5.15.0)
     msgpack (1.4.5)
     net-imap (0.2.3)
@@ -275,6 +278,7 @@ DEPENDENCIES
   jbuilder
   mina (= 1.2.4)
   mina-puma
+  mini_racer
   pg
   puma (~> 5.0)
   rails (~> 7.0.2, >= 7.0.2.2)

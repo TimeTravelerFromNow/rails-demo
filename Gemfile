@@ -77,5 +77,8 @@ group :test do
   gem "webdrivers"
 end
 
+group :production do 
+  gem 'mini_racer'
+end
 
 gem "stimulus_reflex", "= 3.5.0.pre8"
