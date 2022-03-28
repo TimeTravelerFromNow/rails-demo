@@ -7,4 +7,5 @@ test:
 
 production:
   adapter: redis
-  url: <%= ENV.fetch("REDIS_URL") { "redis://localhost:6379/0" } %>
+  url: redis://redis.sebastiandetering.com:6379
+
