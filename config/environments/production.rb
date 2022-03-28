@@ -30,6 +30,7 @@ Rails.application.configure do
   # Do not fallback to assets pipeline if a precompiled asset is missed.
 
   config.assets.prefix = "/app/javascript"
+  config.action_cable.allowed_request_origins = ["https://sebastiandetering.com"]
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
   # config.asset_host = "http://assets.example.com"
 
