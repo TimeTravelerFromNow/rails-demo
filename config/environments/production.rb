@@ -1,6 +1,5 @@
 require "active_support/core_ext/integer/time"
 
-Rails.application.config.assets.precompile += %w( *.js ^[^_]*.css *.css.erb )
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -29,10 +28,6 @@ Rails.application.configure do
   # config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
-  config.assets.compile = true # changed mar 27 2022
-  config.serve_static_files = true
-  config.public_file_server.enabled = true
-  config.assets.precompile =  ['*.js', '*.css']
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
   # config.asset_host = "http://assets.example.com"
