@@ -1,0 +1,73 @@
+
+.articles.index {
+
+  .hr {
+      display: block;
+      height: 1px;
+      border: 0;
+      border-top: 1px solid #ccc;
+      margin: 1em 0;
+      padding: 0;
+  }
+  .center {
+    display: flex;
+    justify-content: center;
+  }
+  .paragraph {
+    transition: background-color 0.5s ease;
+    &:hover {
+      background-color: #f8f9fa;
+    }
+  }
+  .image {
+    text-align: center;
+    img {
+      max-width: 80%
+    }
+  }
+  .post-card {
+    height: 522px;
+    .header-img {
+      height: 220px;
+      width: 100%;
+      background-size: cover;
+      background-position: center;
+
+    }
+  }
+  .card-text {
+    text-decoration: none;
+    text-decoration-style: text-decoration-none;
+  }
+}
+
+
+.articles.show {
+  .hr {
+      display: block;
+      height: 1px;
+      border: 0;
+      border-top: 1px solid #ccc;
+      margin: 1em 0;
+      padding: 0;
+  }
+  .center {
+    display: flex;
+    justify-content: center;
+  }
+
+  .image {
+    text-align: center;
+    img {
+      max-width: 80%
+    }
+  }
+  .post-card {
+    .header-img {
+      height: 362px;
+      background-size: cover;
+      background-position: center;
+
+    }
+  }
+}
