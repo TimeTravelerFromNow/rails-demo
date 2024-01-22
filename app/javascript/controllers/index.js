@@ -17,4 +17,12 @@ import PositionController from "./position_controller.js"
 application.register("position", PositionController)
 
 import PublisherController from "./publisher_controller.js"
+import StimulusReflex from 'stimulus_reflex'
+import consumer from '../channels/consumer'
+import controller from '../controllers/application_controller'
+import CableReady from 'cable_ready'
 application.register("publisher", PublisherController)
+application.consumer = consumer
+StimulusReflex.initialize(application, { controller, isolate: true })
+StimulusReflex.debug = process.env.RAILS_ENV === 'development'
+CableReady.initialize({ consumer })
