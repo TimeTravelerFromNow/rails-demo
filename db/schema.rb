@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema[7.0].define(version: 2022_03_28_032606) do
+=======
+ActiveRecord::Schema[7.0].define(version: 2022_03_05_211051) do
+>>>>>>> 993c60ed18528dbb36a11001571251cf20873e14
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
     t.text "body"
@@ -82,12 +86,17 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_28_032606) do
   end
 
   create_table "elements", force: :cascade do |t|
+<<<<<<< HEAD
     t.string "element_type"
     t.integer "article_id", null: false
     t.integer "position"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["article_id"], name: "index_elements_on_article_id"
+=======
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+>>>>>>> 993c60ed18528dbb36a11001571251cf20873e14
   end
 
   create_table "users", force: :cascade do |t|
